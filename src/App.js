@@ -43,25 +43,16 @@ function App() {
       // Make Detections
       const obj = await net.detect(video);
 
-        // console.log(obj)
-       const object= obj.map(data =>(data.class)
+        console.log(obj[0]?.class)
+      //  const object= obj.map(data =>(data.class)
       //     // console.log(data.score) 
       //     // console.log(data.class)
-        )
+        // )
 
         // console.log(object)
-        const name=()=>{
+       
 
-          for (let i = 0; i < object.length; i++) {
-            var a=object[i]
-            
-            console.log(a)
-          }
-        }
-
-        name();
-
-      
+          const data=obj[0]?.class;
 
           // // console.log(bbox);
           // // console.log(name);
@@ -71,7 +62,7 @@ function App() {
         msg.volume = 1; 
         msg.rate = 1; 
         msg.pitch = 1.5; 
-        msg.text  = "hello vinni";
+        msg.text  = data;
         msg.lang = "en-US";
         console.log(msg);
         speechSynthesis.speak(msg);
